@@ -1,0 +1,36 @@
+<?php
+
+return array (
+  'singular' => 'Reservation',
+  'plural' => 'Reservations',
+  'fields' => 
+  array (
+    'id' => 'Id',
+    'trip_id' => 'Trip Id',
+    'trip' => 'Trip',
+    'user_id' => 'User Id',
+    'user' => 'User',
+    'price' => 'Price',
+    'ip_address' => 'Ip Address',
+    'comment' => 'Comment',
+    'status' => 'Status',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+    'type' => 'Type',
+    'accommodation_num' => 'Accommodation Num',
+    'guest_name' => 'Guest Name',
+    'adults_count' => 'Adults Count',
+    'children_count' => 'Children Count',
+    'child1_age' => 'Child1 Age',
+    'child2_age' => 'Child2 Age',
+    'cabin_price' => 'Cabin Price',
+    'suite_price' => 'Suite Price',
+    'cabin_suite_price' => '(Cabin / Suite) Price',
+    'child1_count' => 'Child (50%)',
+    'child2_count' => 'Child (free)',
+    'total_price' => 'Total Price',
+    'pending' => 'Pending',
+    'failed' => 'Failed',
+    'success' => 'Success',
+  ),
+);
