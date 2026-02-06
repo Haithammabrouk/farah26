@@ -25,6 +25,13 @@
 </li>
 @endcan
 
+<li class="nav-item {{ Request::is('adminPanel/reports*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('adminPanel.reports.index') }}">
+        <i class="nav-icon fas fa-chart-bar"></i>
+        <span>Reports</span>
+    </a>
+</li>
+
 <li class="nav-item">
     <a class="nav-link" href="{{ route('adminPanel.coupon') }}">
         <i class="nav-icon icon-cursor"></i>

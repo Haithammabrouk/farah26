@@ -124,6 +124,12 @@ Route::group(['prefix' => 'adminPanel', 'namespace' => 'AdminPanel', 'as' => 'ad
         //Meta CRUD
         Route::resource('metas', 'metaController');
 
+        //Reports
+        Route::get('reports', 'ReportController@index')->name('reports.index');
+        Route::get('reports/export-statistics', 'ReportController@exportStatistics')->name('reports.exportStatistics');
+        Route::get('reports/export-reservations', 'ReportController@exportReservations')->name('reports.exportReservations');
+        Route::get('reports/export-users', 'ReportController@exportUsers')->name('reports.exportUsers');
+
         //Closed Dates CRUD
         Route::resource('closedDates', 'ClosedDatesController');
     });

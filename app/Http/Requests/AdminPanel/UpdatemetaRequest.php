@@ -25,8 +25,19 @@ class UpdatemetaRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = meta::$rules;
-        
+        $metaId = $this->route('meta');
+
+        $rules = [
+            'name' => 'required|string|max:191|unique:metas,name,' . $metaId,
+        ];
+
+        // Add validation for each language
+        foreach (config('langs') as $locale => $name) {
+            $rules["{$locale}.title"] = 'required|string|max:191';
+            $rules["{$locale}.description"] = 'required|string|max:500';
+            $rules["{$locale}.keywords"] = 'required|string|max:500';
+        }
+
         return $rules;
     }
 }

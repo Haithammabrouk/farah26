@@ -34,5 +34,10 @@ class AppServiceProvider extends ServiceProvider
         } else {
             app()->setLocale($default);
         }
+
+        // Register @meta Blade directive for SEO
+        \Illuminate\Support\Facades\Blade::directive('meta', function ($pageName) {
+            return "<?php echo \\App\\Helpers\\MetaHelper::renderMetaTags($pageName); ?>";
+        });
     }
 }

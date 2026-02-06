@@ -46,5 +46,10 @@ class meta extends Model implements TranslatableContract
      *
      * @var array
      */
-    public static $rules = [];
+    public static $rules = [
+        'name' => 'required|string|max:191|unique:metas,name',
+        '*.title' => 'required|string|max:191',
+        '*.description' => 'required|string|max:500',
+        '*.keywords' => 'required|string|max:500',
+    ];
 }

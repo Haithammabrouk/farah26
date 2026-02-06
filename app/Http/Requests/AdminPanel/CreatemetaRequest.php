@@ -25,6 +25,17 @@ class CreatemetaRequest extends FormRequest
      */
     public function rules()
     {
-        return meta::$rules;
+        $rules = [
+            'name' => 'required|string|max:191|unique:metas,name',
+        ];
+
+        // Add validation for each language
+        foreach (config('langs') as $locale => $name) {
+            $rules["{$locale}.title"] = 'required|string|max:191';
+            $rules["{$locale}.description"] = 'required|string|max:500';
+            $rules["{$locale}.keywords"] = 'required|string|max:500';
+        }
+
+        return $rules;
     }
 }

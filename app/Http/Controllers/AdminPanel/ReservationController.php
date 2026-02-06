@@ -31,13 +31,12 @@ class ReservationController extends AppBaseController
      */
     public function index(Request $request)
     {
-      
-        $reservations = Reservation::latest()->paginate(10);
-
-        // return $reservations ;
+        $search = $request->input('search');
+        $reservations = $this->reservationRepository->searchWithRelations($search, 10);
 
         return view('adminPanel.reservations.index')
-            ->with('reservations', $reservations);
+            ->with('reservations', $reservations)
+            ->with('search', $search);
     }
 
     /**
@@ -129,8 +128,6 @@ class ReservationController extends AppBaseController
     public function update($id, UpdateReservationRequest $request)
     {
         $reservation = $this->reservationRepository->find($id);
-
-        return $reservation ;
 
         if (empty($reservation)) {
             Flash::error(__('messages.not_found', ['model' => __('models/reservations.singular')]));
