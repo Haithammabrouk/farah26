@@ -22,18 +22,13 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
+     * Redirect to admin panel by default.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function index()
     {
-        dd(request()->all());
-        // $user = User::first();
-
-        // $online_payment_data = $this->online_payment_data(200, rand(), uniqid(), $user);
-            
-        // $signature = $this->signature($online_payment_data);
-        
-        return view('welcome', compact('online_payment_data', 'signature'));
+        // Redirect to admin panel
+        return redirect()->route('adminPanel.dashboard');
     }
 }
