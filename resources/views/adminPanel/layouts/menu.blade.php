@@ -32,6 +32,13 @@
     </a>
 </li>
 
+<li class="nav-item {{ Request::is('adminPanel/settings*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('adminPanel.settings.index') }}">
+        <i class="nav-icon fas fa-cog"></i>
+        <span>Settings</span>
+    </a>
+</li>
+
 <li class="nav-item">
     <a class="nav-link" href="{{ route('adminPanel.coupon') }}">
         <i class="nav-icon icon-cursor"></i>

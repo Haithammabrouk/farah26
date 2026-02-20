@@ -130,6 +130,10 @@ Route::group(['prefix' => 'adminPanel', 'namespace' => 'AdminPanel', 'as' => 'ad
         Route::get('reports/export-reservations', 'ReportController@exportReservations')->name('reports.exportReservations');
         Route::get('reports/export-users', 'ReportController@exportUsers')->name('reports.exportUsers');
 
+        //Settings
+        Route::get('settings', 'SettingsController@index')->name('settings.index');
+        Route::put('settings', 'SettingsController@update')->name('settings.update');
+
         //Closed Dates CRUD
         Route::resource('closedDates', 'ClosedDatesController');
     });

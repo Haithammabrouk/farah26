@@ -1289,11 +1289,16 @@
     </style>
     
     <!-- Google Tag Manager -->
+    @php
+        $gtm_id = App\Models\Setting::get('google_tag_manager_id');
+    @endphp
+    @if($gtm_id)
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WC3SSBB');</script>
+    })(window,document,'script','dataLayer','{{ $gtm_id }}');</script>
+    @endif
     <!-- End Google Tag Manager -->
 </head>
 
@@ -1308,10 +1313,12 @@
     </script>
 
     <!-- Google Tag Manager (noscript) -->
+    @if($gtm_id ?? App\Models\Setting::get('google_tag_manager_id'))
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC3SSBB"
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{ $gtm_id ?? App\Models\Setting::get('google_tag_manager_id') }}"
                 height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
+    @endif
     <!-- End Google Tag Manager (noscript) -->
     
     <!-- Loading Overlay -->
