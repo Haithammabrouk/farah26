@@ -42,12 +42,12 @@ class PageTranslation extends Model
      *
      * @return array
      */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
+public function sluggable(): array
+{
+    return [
+        'slug' => [
+            'source' => 'title'
+        ]
+    ];
+}
 }

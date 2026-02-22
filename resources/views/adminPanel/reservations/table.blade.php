@@ -1,5 +1,5 @@
 <div class="table-responsive-sm">
-    <table class="table table-striped" id="reservations-table">
+    <table class="table table-striped table-bordered" id="reservations-table">
         <thead>
             <tr>
                 <th>@lang('models/reservations.fields.id')</th>
